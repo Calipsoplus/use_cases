@@ -1,0 +1,13 @@
+From consol/centos-xfce-vnc:latest
+
+ENV PATH=/usr/local/bin:$PATH
+
+USER root
+ADD pyfai-miniconda.sh pyfai-miniconda.sh
+ADD pyfai-install.sh pyfai-install.sh
+RUN  chmod a+x ./*.sh 
+RUN ./pyfai-miniconda.sh && rm -f pyfai-miniconda.sh
+RUN ./pyfai-install.sh && rm -f pyfai-install.sh
+
+
+
