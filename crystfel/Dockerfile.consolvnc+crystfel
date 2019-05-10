@@ -1,0 +1,17 @@
+From consol/centos-xfce-vnc:latest
+
+ENV CINCL=/usr/local/crystfel/include \
+    CLIBD=/usr/local/crystfel/data \
+    CCP4_SCR=/tmp 
+
+ENV PATH=/usr/local/crystfel/bin:$PATH
+
+
+USER root
+ADD crystfel.sh crystfel.sh
+RUN  chmod a+x ./crystfel.sh 
+RUN ./crystfel.sh && rm -f crystfel.sh
+#RUN yum clean all
+#RUN yum install singularity -y
+
+
