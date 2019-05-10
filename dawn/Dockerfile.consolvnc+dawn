@@ -1,0 +1,11 @@
+From consol/centos-xfce-vnc:latest
+
+ENV PATH=/usr/local/bin:$PATH
+
+USER root
+ADD dawn-install.sh dawn-install.sh
+RUN  chmod a+x ./*.sh 
+RUN ./dawn-install.sh && rm -f dawn-install.sh
+
+
+
