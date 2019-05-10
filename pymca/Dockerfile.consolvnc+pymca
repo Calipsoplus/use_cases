@@ -1,0 +1,13 @@
+From consol/centos-xfce-vnc:latest
+
+ENV PATH=/usr/local/bin:$PATH
+
+USER root
+ADD pymca-miniconda.sh pymca-miniconda.sh
+ADD pymca-install.sh pymca-install.sh
+RUN  chmod a+x ./*.sh 
+RUN ./pymca-miniconda.sh && rm -f pymca-miniconda.sh
+RUN ./pymca-install.sh && rm -f pymca-install.sh
+
+
+
